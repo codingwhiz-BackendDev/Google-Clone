@@ -12,16 +12,16 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom right, #ffffff, #f2f2f2);
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #ffffff, #f2f2f2);
     }
 
     .wrapper {
       text-align: center;
-      margin-top: 20px;
     }
 
     .google {
@@ -32,15 +32,21 @@
     }
 
     .input-container {
+      display: flex;
+      /* Use flexbox to align items side by side */
+      justify-content: center;
+      /* Center the items horizontally */
+      align-items: center;
+      /* Center the items vertically */
       width: 100%;
       max-width: 600px;
-      display: flex;
-      justify-content: center;
+      /* Limit the width for better layout */
       margin-bottom: 20px;
     }
 
     input[type="search"] {
-      width: 100%;
+      flex: 1;
+      /* Make input take available space */
       padding: 15px;
       border: 1px solid #dcdcdc;
       border-radius: 24px;
@@ -61,43 +67,13 @@
       padding: 15px 30px;
       font-size: 16px;
       margin-left: 10px;
+      /* Space between input and button */
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
     button:hover {
       background-color: #357ae8;
-    }
-
-    .results {
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-
-    .result {
-      background: white;
-      border: 1px solid #dcdcdc;
-      border-radius: 8px;
-      padding: 15px;
-      margin: 10px 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
-    }
-
-    .result:hover {
-      transform: scale(1.02);
-    }
-
-    .result h2 {
-      font-size: 20px;
-      margin: 0 0 10px 0;
-    }
-
-    .result p {
-      color: #555;
-      margin: 0;
     }
 
     @media (max-width: 768px) {
@@ -113,10 +89,6 @@
       button {
         padding: 12px 24px;
         font-size: 14px;
-      }
-
-      .result h2 {
-        font-size: 18px;
       }
     }
   </style>
@@ -136,11 +108,11 @@
       <form action="/search" method="POST">
         {% csrf_token %}
         <input type="search" name="search" placeholder="Search here..." required>
-        <button type="submit"><i class="fas fa-search"></i></button>
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
       </form>
     </div>
   </div>
- 
+
 </body>
 
 </html>

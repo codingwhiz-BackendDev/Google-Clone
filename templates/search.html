@@ -32,10 +32,15 @@
         }
 
         .input-container {
+            display: flex;
+            /* Use flexbox to align items side by side */
+            justify-content: center;
+            /* Center the items horizontally */
+            align-items: center;
+            /* Center the items vertically */
             width: 100%;
             max-width: 600px;
-            display: flex;
-            justify-content: center;
+            /* Limit the width for better layout */
             margin-bottom: 20px;
         }
 
@@ -135,7 +140,7 @@
         <div class="input-container">
             <form action="/search" method="POST">
                 {% csrf_token %}
-                <input type="search"  name="search" placeholder="Search here..." required>
+                <input type="search" name="search" placeholder="Search here..." required>
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
@@ -149,8 +154,6 @@
             <p>{{ result.2 }}</p>
         </div>
         {% endfor %}
-        {% else %}
-        <p>Nothing here</p>
         {% endif %}
     </div>
 </body>
